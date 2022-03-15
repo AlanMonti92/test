@@ -4,7 +4,7 @@ const Dentistas = () => {
     return (
         <div>
             <h1>Dentistas</h1>
-            <p></p>
+            <p>Listar Dentistas</p>
 
         </div>
     );

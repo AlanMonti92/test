@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', 'App\Http\Controllers\ControllerDentist@index');
+//Route::inertia('/', 'App\Http\Controllers\ControllerDentist@index');
 
-Route::inertia('/about', 'About');
+//Route::inertia('/home', 'Home');
+Route::inertia('/', 'Index');

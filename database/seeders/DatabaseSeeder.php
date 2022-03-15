@@ -4,8 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Factory;
-use App\Models\Pais;
-use App\Models\Dentista;
+use App\Models\Country;
+use App\Models\Dentist;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,12 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            Pais::class,
-            Dentista::class,
-        ]); 
-        
-        Dentista::factory()->count(25)->create();
-        Pais::factory()->count(25)->create(); 
+            CountryTableSeeder::class,
+            DentistTableSeeder::class,
+        ]);       
         
     }
 }

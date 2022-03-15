@@ -2,19 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
+use App\Models\Dentist;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Pais;
-use App\Models\Dentista;
 
-class DentistaFactory extends Factory
+class DentistFactory extends Factory
 {
-  /**
-     * The name of the factory's corresponding model.
-     *
-     * @var string
-     */
-    protected $model = Dentista::class;
 
+    protected $model = Dentist::class;
     /**
      * Define the model's default state.
      *
@@ -27,7 +22,7 @@ class DentistaFactory extends Factory
             'gender' => $this->faker->randomElement(['male', 'female']),
             'surname' => $this->faker->lastName(),
             'email' => $this->faker->unique()->safeEmail(),
-            'pais_id' => Pais::inRandomOrder()->value('id') ?: factory(Pais::class),
+            'country_id' => Country::inRandomOrder()->value('id') ?: factory(Country::class),
         ];
     }
 }

@@ -5,50 +5,75 @@ import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 const Index = () => {
 
     const { data } = usePage().props;
+
     return (
-
-        <div>
-            <div className="container mx-auto">
-                <h1 className="mb-8 text-3xl font-bold text-center">Dentistas</h1>
-                <div className="flex items-center justify-between mb-6">
-                </div>
-
-                <div className="overflow-x-auto bg-white rounded shadow">
-                    <table className="w-full whitespace-nowrap">
-                        <thead className="text-white bg-gray-600">
-                            <tr className="font-bold text-left">
-                                <th className="px-6 pt-5 pb-4">#</th>
-                                <th className="px-6 pt-5 pb-4">name</th>
-                                <th className="px-6 pt-5 pb-4">surname</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            {data.map(({ id, name, surname }) => (
-                                <tr key={id} className="">
-                                    <td className="border-t">
-                                        {id}
-                                    </td>
-                                    <td className="border-t">
-                                        {name}
-                                    </td>
-                                    <td className="border-t">
-                                        {surname}
-                                    </td>
-                                </tr>
-                            ))}
-                            {data.length === 0 && (
+    <div class="bg-white p-8 rounded-md w-full">
+        <div class=" flex items-center justify-between pb-6">
+            <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+                    <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
+                        <table class="min-w-full leading-normal">
+                            <thead>
                                 <tr>
-                                    <td
-                                        className="px-6 py-4 border-t"
-                                        colSpan="4"
-                                    >
-                                        No dentist found.
-                                    </td>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Name
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Surname
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Gender
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Country name
+                                    </th>
+                                    <th
+                                        class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">
+                                        Creado
+                                    </th>
                                 </tr>
-                            )}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {data.map(({ name, email, surname,gender,country_id }) => (
+                                    <tr>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                            <div class="flex items-center">
+                                                    <div class="ml-3">
+                                                        <div class="text-sm leading-5 font-medium text-gray-900">
+                                                            {name}
+                                                        </div>
+                                                        <div class="text-sm leading-5 text-fray-500">
+                                                            {email}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </td>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center ">
+                                            <div class="ml-2">
+                                                <div class="text-sm leading-5 font-medium text-gray-900">
+                                                    {surname}
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                {gender}
+                                            </p>
+                                        </td>
+
+                                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                                            <p class="text-gray-900 whitespace-no-wrap">
+                                                {country_id}
+                                            </p>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

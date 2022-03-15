@@ -3,10 +3,9 @@ import { Inertia } from "@inertiajs/inertia";
 import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 
 const Index = () => {
-    const { dentistas } = usePage().props;
-    console.log(usePage().props);
 
-    /* return (
+    const { data } = usePage().props;
+    return (
 
         <div>
             <div className="container mx-auto">
@@ -25,7 +24,7 @@ const Index = () => {
                         </thead>
                         <tbody>
 
-                            {dentistas.map(({ id, name, surname }) => (
+                            {data.map(({ id, name, surname }) => (
                                 <tr key={id} className="">
                                     <td className="border-t">
                                         {id}
@@ -38,7 +37,7 @@ const Index = () => {
                                     </td>
                                 </tr>
                             ))}
-                            {dentistas.length === 0 && (
+                            {data.length === 0 && (
                                 <tr>
                                     <td
                                         className="px-6 py-4 border-t"
@@ -53,7 +52,7 @@ const Index = () => {
                 </div>
             </div>
         </div>
-    ); */
+    );
 };
 
 export default Index;

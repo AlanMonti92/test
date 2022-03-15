@@ -11,7 +11,7 @@ class ControllerDentist extends Controller
 {
     public function index()
     {
-        $dentistas = Dentist::get();
-        return Inertia::render('Index', ['dentistas' => $dentistas]);
+        $data = Dentist::all();
+        return Inertia::render('Index', ['data' => $data]);
     }
 }

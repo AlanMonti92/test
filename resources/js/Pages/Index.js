@@ -2,13 +2,16 @@ import React from "react";
 import { Inertia } from "@inertiajs/inertia";
 import { InertiaLink, usePage } from "@inertiajs/inertia-react";
 
+
+
 const Index = () => {
 
     const { data } = usePage().props;
 
     return (
+
     <div class="bg-white p-8 rounded-md w-full">
-        <div class=" flex items-center justify-between pb-6">
+        <div class=" flex items-center justify-center pb-6">
             <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                     <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
                         <table class="min-w-full leading-normal">
@@ -81,4 +84,3 @@ const Index = () => {
 };
 
 export default Index;
-

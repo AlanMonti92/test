@@ -9,9 +9,11 @@ use Inertia\Inertia;
 
 class ControllerDentist extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Dentist::all();
-        return Inertia::render('Index', ['data' => $data]);
+        return Inertia::render('Dentistas/Index', [
+            'filters' => $request->search,
+            'dentistas' => Dentist::with('country')->filter($request->search)->paginate(5)
+        ]);
     }
 }

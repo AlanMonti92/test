@@ -20,6 +20,7 @@ class Dentist extends Model
                 $query->orWhere('name', 'like', '%'.$search.'%')
                     ->orWhere('surname', 'like', '%'.$search.'%')
                     ->orWhere('gender', 'like', '%'.$search.'%')
+                    ->orWhere('created_at', 'like', '%'.$search.'%')
                     ->orWhere('email', 'like', '%'.$search.'%');
             });
         });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { InertiaLink, usePage } from '@inertiajs/inertia-react';
-/* import Layout from '@/Shared/Layout'; */
+import moment from 'moment'
 import SearchFilter from '../../Shared/SearchFilter';
 import Pagination from '../../Shared/Pagination';
 
@@ -13,7 +13,12 @@ const Index = () => {
   return (
 
     <div className="bg-white p-8 rounded-md w-full">
-        <div className="flex items-center justify-between mb-6">
+        <div className="lg:text-center p-8">
+            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">Challenge</h2>
+            <p className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">Listar Dentistas</p>
+        </div>
+
+        <div className="flex items-center justify-center mb-6">
             <SearchFilter />
         </div>
         <div className=" flex items-center justify-center pb-6">
@@ -45,7 +50,7 @@ const Index = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {data.map(({ id, name, email, surname,gender,country }) => (
+                                {data.map(({ id, name, email, surname,gender,country, created_at }) => (
                                     <tr key={id}>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                             <div className="flex items-center">
@@ -77,6 +82,13 @@ const Index = () => {
                                                 {country.name}
                                             </p>
                                         </td>
+
+                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">
+                                            <p className="text-gray-900 whitespace-no-wrap">
+                                                {moment(created_at).format('d/m/Y')}
+                                            </p>
+                                        </td>
+
                                     </tr>
                                 ))}
                             </tbody>
@@ -84,11 +96,12 @@ const Index = () => {
                     </div>
                 </div>
             </div>
-            <Pagination links={links} />
+            <div className="flex items-center justify-center mb-6">
+              <Pagination links={links} />
+            </div>
+
         </div>
   );
-}; 
-
-/* Index.layout = page => <Layout title="Users" children={page} />; */
+};
 
 export default Index;
